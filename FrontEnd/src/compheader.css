@@ -28,3 +28,15 @@ padding: 15px;
     border-color:#58181F #58181F #58181F;
     color:White;
 }
+.productListDiv{
+    display: flex;
+    justify-content:space-between;
+}
+.productListMainDiv{
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+}
+.vhome_container{
+    padding:15px;
+}
