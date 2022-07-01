@@ -1,0 +1,632 @@
+{
+	"info": {
+		"_postman_id": "9aa5c904-320f-4211-bb47-afa2c27eea4a",
+		"name": "Sapien",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"u_fname\":\"Yuvi\",\r\n    \"u_lname\":\"Chaudhari\",\r\n    \"u_phone\":\"8816546511\",\r\n    \"u_address\":\"7, Anand Nagar, Mohadi Road, Jalgaon\",\r\n    \"u_email\":\"yuvShendya@gmail.com\",\r\n    \"u_password\":\"YY111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"u_email\":\"yuvShendya@gmail.com\",\r\n    \"u_password\":\"YY111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/loginuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"loginuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"u_email\":\"yuvShendya@gmail.com\",\r\n    \"u_password\":\"YY111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/loginuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"loginuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get UserBy id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"u_fname\":\"Yuvi\",\r\n    \"u_lname\":\"Chaudhari\",\r\n    \"u_phone\":\"8816546511\",\r\n    \"u_address\":\"7, Anand Nagar, Mohadi Road, Jalgaon\",\r\n    \"u_email\":\"yuvShendya@gmail.com\",\r\n    \"u_password\":\"YY111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Money to user wallet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"u_fname\":\"Yuvi\",\r\n    \"u_lname\":\"Chaudhari\",\r\n    \"u_phone\":\"8816546511\",\r\n    \"u_address\":\"7, Anand Nagar, Mohadi Road, Jalgaon\",\r\n    \"u_email\":\"yuvShendya@gmail.com\",\r\n    \"u_password\":\"YY111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/adduser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"adduser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginVendor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"v_password\":\"YY111\",\r\n    \"v_email\":\"yuvShendya@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vendor/loginvendor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor",
+						"loginvendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup Vendor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"v_name\":\"Vaphalya\",\r\n    \"v_phone\":\"8816546511\",\r\n    \"v_address\":\"7, Anand Nagar, Mohadi Road, Jalgaon\",\r\n    \"v_email\":\"yuvShendya@gmail.com\",\r\n    \"v_password\":\"YY111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vendor/addvendor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor",
+						"addvendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vendors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vendor/getallvendor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor",
+						"getallvendor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vendor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vendor/getvendor/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor",
+						"getvendor",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve Vendor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vendor/getvendor/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vendor",
+						"getvendor",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"a_email\":\"admin@abc.com\",\r\n    \"a_password\":\"AA111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/adminlogin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"adminlogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Catagory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"c_type\":\"RAW\",\r\n    \"c_name\":\"Shirt Cotton\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/category/addcategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"addcategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/category/getallcategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"getallcategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/vaddproduct?c_id=4&v_id=3&pname=TShirt&pdesc=AGreatTShirt&pbrand=Reebok&psize=25&pprice=5000&pqty=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"vaddproduct"
+					],
+					"query": [
+						{
+							"key": "c_id",
+							"value": "4"
+						},
+						{
+							"key": "v_id",
+							"value": "3"
+						},
+						{
+							"key": "pname",
+							"value": "TShirt"
+						},
+						{
+							"key": "pdesc",
+							"value": "AGreatTShirt"
+						},
+						{
+							"key": "pbrand",
+							"value": "Reebok"
+						},
+						{
+							"key": "psize",
+							"value": "25"
+						},
+						{
+							"key": "pprice",
+							"value": "5000"
+						},
+						{
+							"key": "pqty",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/getallproducts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"getallproducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://007b-122-177-22-142.ngrok.io/product/getallproducts",
+					"protocol": "https",
+					"host": [
+						"007b-122-177-22-142",
+						"ngrok",
+						"io"
+					],
+					"path": [
+						"product",
+						"getallproducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products By Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product/getbycid?c_id=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product",
+						"getbycid"
+					],
+					"query": [
+						{
+							"key": "c_id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\":\"Pimprala\",\r\n    \"o_phone\":\"9403568553\",\r\n    \"totalprice\":\"10000\",\r\n    \"u_id\":21,\r\n    \"productsQuantity\":[\r\n        {\r\n            \"product_id\":2,\r\n            \"quantity\":5\r\n        },{\r\n            \"product_id\":6,\r\n            \"quantity\":2\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/saveMyOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"saveMyOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getMyOrder/22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getMyOrder",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get All Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getAllOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Orders by User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getorderdatafromuid/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getorderdatafromuid",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload img",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/HP/Pictures/Screenshots/abc.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/upload_product_image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload_product_image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GiveAUthority",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJTYXBpZW4iLCJzdWIiOiJKV1QgVG9rZW4iLCJ1X2VtYWlsIjoiY0BnbWFpbC5jb20iLCJhdXRob3JpdGllcyI6IkFETUlOIiwiaWF0IjoxNjQ5NDkxMDAzLCJleHAiOjE2NDk1MjEwMDN9.HvKOmDHVC6_AVVUYCHo71QScbU5Pfdtat0vpq4BIA9I",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authorityTo\":29,\r\n    \"authority\":\"ADMIN\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/giveAuthority",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"giveAuthority"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
