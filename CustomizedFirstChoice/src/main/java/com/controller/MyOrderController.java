@@ -50,6 +50,8 @@ public class MyOrderController {
 	@PostMapping("/rateMyOrder")
 	public ResponseEntity<Boolean> rateOrder(@RequestBody Rating rating)
 	{
-		return ResponseEntity.ok().body(moservice.rateMyOrder(rating));
+		Boolean isSucceed = moservice.rateMyOrder(rating);
+		moservice.calculateProductRating(rating.getProduct_id());
+		return ResponseEntity.ok().body(isSucceed);
 	}
 }

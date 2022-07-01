@@ -17,4 +17,6 @@ public interface MyOrderProductMappingRepository  extends JpaRepository<MyOrderP
     @Query(value="select op from my_order_product_mapping op where op.order_id=?1",nativeQuery = true)
     public List<MyOrderProductMapping> getAllOrderProductMappingForOrder(int order_id);
 
+    @Query(value="select a.rating from my_order_product_mapping a where a.product_id=?1",nativeQuery = true)
+    public List<Integer> getAllOrderProductRatingForProduct(int product_id);
 }

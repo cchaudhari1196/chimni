@@ -22,7 +22,7 @@ public class MyOrderProductMapping {
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "rating", columnDefinition = "integer default 1")
+    @Column(name = "rating", columnDefinition = "integer default 0")
     private int rating;
 
     public Product getProduct() {

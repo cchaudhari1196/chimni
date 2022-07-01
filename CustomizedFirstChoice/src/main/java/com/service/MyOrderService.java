@@ -8,6 +8,7 @@ import com.models.OrderQuantity;
 import com.models.Rating;
 import com.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -188,6 +189,17 @@ public class MyOrderService {
 		MyOrderProductMapping productOrderMapping = (MyOrderProductMapping) productOrderMappingOptional.get();
 		productOrderMapping.setRating(rating.getRatings());
 		orderRepo.save(order);
+		return true;
+	}
+
+//	@Async
+	public boolean calculateProductRating(Integer product_id){
+		System.out.println("xxx "+product_id +" xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		List<Integer> mapping = opMappingRepo.getAllOrderProductRatingForProduct(product_id);
+		Double averageRating = mapping.stream().filter(e -> e > 5).mapToInt(e-> e).average().orElse(10);
+		Product product = productRepo.getById(product_id);
+		product.setPrating(averageRating.intValue());
+		productRepo.save(product);
 		return true;
 	}
 }
