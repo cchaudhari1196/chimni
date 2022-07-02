@@ -1,16 +1,15 @@
 package com.controller;
 
-import java.util.List;
-
-import com.entities.MyOrderProductMapping;
+import com.entities.MyOrder;
 import com.models.Order;
 import com.models.Rating;
+import com.service.MyOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.entities.MyOrder;
-import com.service.MyOrderService;
+
+import java.util.List;
 
 @CrossOrigin("*")
 @RestController
@@ -53,5 +52,12 @@ public class MyOrderController {
 		Boolean isSucceed = moservice.rateMyOrder(rating);
 		moservice.calculateProductRating(rating.getProduct_id());
 		return ResponseEntity.ok().body(isSucceed);
+	}
+
+	@PostMapping("/cancelOrder/{orderId}")
+	public ResponseEntity<MyOrder> cancelOrder(@PathVariable("orderId") Integer orderId)
+	{
+		MyOrder order = moservice.cancelOrder(orderId);
+		return ResponseEntity.ok().body(order);
 	}
 }

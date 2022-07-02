@@ -1,15 +1,15 @@
 package com.service;
 
-import java.util.*;
-
 import com.entities.*;
 import com.models.Order;
 import com.models.OrderQuantity;
 import com.models.Rating;
 import com.repository.*;
+import org.hibernate.proxy.HibernateProxy;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
 
 @Service
 public class MyOrderService {
@@ -192,14 +192,52 @@ public class MyOrderService {
 		return true;
 	}
 
-//	@Async
 	public boolean calculateProductRating(Integer product_id){
-		System.out.println("xxx "+product_id +" xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		List<Integer> mapping = opMappingRepo.getAllOrderProductRatingForProduct(product_id);
 		Double averageRating = mapping.stream().filter(e -> e > 5).mapToInt(e-> e).average().orElse(10);
 		Product product = productRepo.getById(product_id);
 		product.setPrating(averageRating.intValue());
 		productRepo.save(product);
 		return true;
+	}
+
+	public MyOrder cancelOrder(Integer orderId){
+		MyOrder order = orderRepo.getById(orderId);
+
+		User user = userRepo.getById(order.getUser().getU_id());
+		user.setWallet(user.getWallet() + order.getTotalprice());
+
+
+		List<Product> products = new ArrayList<>();
+		List<Vendor> vendors = new ArrayList<>();
+		for(MyOrderProductMapping mapping : order.getProductAssoc()){
+			Product prod = productRepo.getById(mapping.getProduct().getP_id());
+			prod.setPqty(prod.getPqty() + mapping.getQuantity());
+			products.add(prod);
+
+			Vendor vendor = vendorRepo.getById(prod.getVdr().getV_id());
+			Float costOfProductOrdered = mapping.getProduct().getPprice() * mapping.getQuantity();
+			vendor.setV_wallet(vendor.getV_wallet() - (costOfProductOrdered*0.9f));
+			vendors.add(vendor);
+		}
+
+		Admin admin = adminRepo.findById(1).get();
+		float updatedAdminWallet = admin.getA_wallet() - (order.getTotalprice() *0.1f);
+		admin.setA_wallet(updatedAdminWallet);
+
+		order.setOstatus("order_cancelled");
+
+		/*Save all data once everything is calculated. otherwise No data will be modified*/
+		adminRepo.save(admin);
+		productRepo.saveAll(products);
+		vendorRepo.saveAll(vendors);
+		userRepo.save(user);
+		orderRepo.save(order);
+
+		if(order instanceof HibernateProxy){
+			HibernateProxy orderProxy = (HibernateProxy) order;
+			order = (MyOrder) orderProxy.getHibernateLazyInitializer().getImplementation();
+		}
+		return order;
 	}
 }
