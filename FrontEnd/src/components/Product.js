@@ -3,6 +3,7 @@ import '../Product.css'
 import { useStateValue } from './Stateprovider'
 import { Row, Card, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Rating } from 'react-simple-star-rating'
 
 function Product({
   id,
@@ -44,6 +45,7 @@ function Product({
     })
   }
   const checkProductInCart = () => {
+    console.log(basket)
     let c = basket.filter((b) => b.pid === id)
     if (c.length > 0) {
       return true
@@ -86,11 +88,17 @@ function Product({
             </strong>
           </Card.Text>
           <Card.Text className="product_rating">
-            {Array(rating)
+            {/* {Array(rating)
               .fill()
               .map((_, i) => (
                 <p key={i}>⭐</p>
-              ))}
+              ))} */}
+            <Rating
+              ratingValue={rating}
+              allowHalfIcon={true}
+              allowHover={false}
+              readonly={true}
+            />
           </Card.Text>
           {checkProductInCart() ? (
             <Link to="/checkout">
