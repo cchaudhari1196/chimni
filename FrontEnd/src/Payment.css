@@ -23,7 +23,9 @@
 } */
 .payment_address, .payment_items, .payment_details {
     flex: 0.8;
-    text-align: center;
+    /* text-align: left; */
+    font-size:20px;
+    font-weight: bold;
 }
   
 .payment_details > form {

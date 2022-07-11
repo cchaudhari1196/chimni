@@ -62,14 +62,16 @@ function Product({
             'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
         }}
       >
-        <Card.Img
-          variant="top"
-          src={imageUrl ? imageUrl : image}
-          style={{
-            borderRadius: '4px',
-            boxShadow: 'rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px',
-          }}
-        />
+        <div className="productImageDiv">
+          <Card.Img
+            variant="top"
+            src={imageUrl ? imageUrl : image}
+            style={{
+              borderRadius: '4px',
+              boxShadow: 'rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px',
+            }}
+          />
+        </div>
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text style={{ marginBottom: '0px' }}>{describe}</Card.Text>

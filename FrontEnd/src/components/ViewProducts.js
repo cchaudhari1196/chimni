@@ -58,6 +58,7 @@ export default class ViewProducts extends React.Component {
                                     <thead>
                                         <tr style={{backgroundColor:"#6e1230",color:"white"}}>
                                             <th>Product ID</th>
+                                            <th>Vendor Name</th>
                                             <th>Product Title</th>
                                             <th>Product Describe</th>
                                             <th>Product Size</th>
@@ -65,6 +66,7 @@ export default class ViewProducts extends React.Component {
                                             <th>Product Price</th>
                                             <th>Product Rating</th>
                                             <th>Product Quantity(units)</th>
+                                            <th>Cat. Type</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -74,6 +76,7 @@ export default class ViewProducts extends React.Component {
                                                     return (
                                                         <tr>
                                                             <td>{o.p_id}</td>
+                                                            <td>{o.vdr.v_name}</td>
                                                             <td>{o.pname}</td>
                                                             <td>{o.pdesc}</td>
                                                             <td>{o.psize}</td>
@@ -81,6 +84,7 @@ export default class ViewProducts extends React.Component {
                                                             <td>{o.pprice}</td>
                                                             <td>{o.prating}</td>
                                                             <td>{o.pqty}</td>
+                                                            <td>{o.cat.c_type}</td>
                                                         </tr>
                                                     );
                                                 }

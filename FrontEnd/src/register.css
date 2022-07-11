@@ -111,3 +111,6 @@ input[type="radio"]{
     margin-right:auto;
     margin-left:auto;
 }
+.orderPlaceHeader{
+    text-align: center;
+}

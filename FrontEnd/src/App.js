@@ -33,10 +33,12 @@ import Wallet from './components/Wallet.js';
 import Awallet from './components/Awallet.js';
 import Vwallet from './components/Vwallet.js';
 import AboutUs from './components/AboutUs.js';
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <Router>
       <div className="App">
+      <ToastContainer />
         <Routes>
           <Route path="/" element={<><Header /><Home /></>} />
           <Route path="/checkout" element={<><Header /><Checkout /><Footer /></>} />

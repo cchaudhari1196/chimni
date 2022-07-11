@@ -33,6 +33,7 @@ export default class ViewOrders extends React.Component{
                                                 }</td></td><td>{o.ostatus}</td></tr>);})}
                             </table>
                         </div>
+                        
                     <div className='vhome_row'>Total Number Of Orders:<br/>{this.state.to.length}</div>
                 </div>
             </div>
