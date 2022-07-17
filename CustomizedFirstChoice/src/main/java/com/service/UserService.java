@@ -1,18 +1,22 @@
 package com.service;
 
 
-import org.apache.tomcat.websocket.AuthenticationException;
+import com.entities.User;
+import com.entities.WalletHistory;
+import com.repository.UserRepository;
+import com.repository.WalletTransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.entities.User;
-import com.repository.UserRepository;
+import java.util.Date;
 
 @Service
 public class UserService
 {
 	@Autowired
 	private UserRepository userrepo;
+	@Autowired
+	private WalletTransactionRepository walletRepo;
 
 	//register
 	public User registerUser(User user) 
@@ -41,7 +45,8 @@ public class UserService
 
 
 	//update
-	public User addWalletMoney(User user) {
+	public User addWalletMoney(WalletHistory walletHistory) {
+		User user = walletHistory.getUser();
 		// TODO Auto-generated method stub
 		User existinguser;
 		existinguser=userrepo.findById(user.getU_id()).orElse(null);
@@ -49,7 +54,11 @@ public class UserService
 			float existingWallet = existinguser.getWallet() > 0 ? existinguser.getWallet() : 0;
 			existinguser.setWallet(existingWallet + user.getWallet());
 		}
-		return userrepo.save(existinguser);
+		walletHistory.setUser(existinguser);
+		walletHistory.setTimeOfTransaction(new Date());
+		walletRepo.save(walletHistory);
+		return existinguser;
+
 	}
 
 

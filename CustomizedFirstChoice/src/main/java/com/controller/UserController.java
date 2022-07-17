@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.entities.User;
+import com.entities.WalletHistory;
 import com.service.UserService;
 import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +49,9 @@ public class UserController
 	}//Ok
 
 	@PostMapping("/addMoney")
-	public User addMoneyToUserWallet(@RequestBody User user)
+	public User addMoneyToUserWallet(@RequestBody WalletHistory wallet)
 	{
-		return userservice.addWalletMoney(user);
+		return userservice.addWalletMoney(wallet);
 	}
 
 

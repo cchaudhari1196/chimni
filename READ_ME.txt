@@ -40,3 +40,11 @@ DROP COLUMN `qty`;
 
 ngrok http -host-header=rewrite 3000
 
+
+
+
+
+If we are getting issue such as Error Code: 1824. Failed to open the referenced table 'user'
+
+Then, 2 tables are not using same engine. This engine is decided by dialect while migrating using spring boot.
+
