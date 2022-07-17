@@ -102,7 +102,8 @@ public class MyOrderService {
 			orderEntity.addProductAssoc(myOrderProductMapping);
 		}
 		Admin admin = adminRepo.findById(1).get();
-		float updatedAdminWallet = admin.getA_wallet() + (price*0.1f);
+		double priceAdminWants = (price / 1.1 ) * 0.1;
+		float updatedAdminWallet = (float) (admin.getA_wallet() + priceAdminWants);
 		admin.setA_wallet(updatedAdminWallet);
 		adminRepo.save(admin);
 		return orderEntity;
@@ -122,7 +123,8 @@ public class MyOrderService {
 	private void calculateWalletForVendor(MyOrderProductMapping mapping, Map<Integer, Vendor> vendors){
 		float totalPriceForProduct = mapping.getProduct().getPprice() * mapping.getQuantity();
 		Vendor requiredVendor = vendors.get(mapping.getProduct().getVdr().getV_id());
-		float updatedVendorWallet = requiredVendor.getV_wallet() + totalPriceForProduct*0.9f;
+		double priceVendorWants = totalPriceForProduct / 1.1;
+		float updatedVendorWallet = (float) (requiredVendor.getV_wallet() + priceVendorWants);
 		requiredVendor.setV_wallet(updatedVendorWallet);
 	}
 

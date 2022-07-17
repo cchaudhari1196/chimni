@@ -1,11 +1,11 @@
 package com.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.proxy.HibernateProxy;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
 
 
 @Entity
@@ -89,6 +89,9 @@ public class MyOrder {
 	}
 
 	public User getUser() {
+		if(user instanceof HibernateProxy){
+			return (User) ((HibernateProxy) user).getHibernateLazyInitializer().getImplementation();
+		}
 		return user;
 	}
 

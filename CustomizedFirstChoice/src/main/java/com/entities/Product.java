@@ -1,13 +1,11 @@
 package com.entities;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.*;
-
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Table
 @Entity
@@ -38,7 +36,7 @@ public class Product {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "v_id")
-	@JsonProperty(access = Access.WRITE_ONLY)
+//	@JsonProperty(access = Access.WRITE_ONLY)
 	private Vendor vdr;
 	
 //	@ManyToMany(mappedBy = "products", cascade = CascadeType.ALL)
