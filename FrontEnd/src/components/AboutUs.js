@@ -1,20 +1,18 @@
-import './AboutUs.css';
-import {Container} from 'react-bootstrap';
+import './AboutUs.css'
+import { Container } from 'react-bootstrap'
+import { textAlign } from '@mui/system'
 
 const About = () => {
-    return (
-        <Container className="aboutDiv">
-            <div className="aboutHead">About Us</div>
-            <div className="mt-4 aboutText">This might be the most distinctive website we’ve come across.
-
-                Anton & Irene is a design agency based in Manhattan.
-
-                Why are they a distinctive web presence?
-
-                Because their page takes parallax scrolling to the next level.
-
-                The snowy effects, bold colors, and quirky visuals create a truly captivating experience.</div>
-        </Container>
-    )
+  return (
+    <Container className="aboutDiv">
+      <div className="aboutHead">About Us</div>
+      <div className="mt-4 aboutText" style={{ textAlign: 'center' }}>
+        This might be the most distinctive website we’ve come across.<br></br> A
+        team formed by CDAC graduates has developed this Portal. <br></br>
+        To simplify the process of buying customized products such as Garments,
+        Daily use home utilities such as bedsheet.
+      </div>
+    </Container>
+  )
 }
-export default About;
+export default About
