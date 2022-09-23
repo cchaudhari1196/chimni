@@ -1,10 +1,10 @@
 package com.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import com.entities.User;
 import com.entities.Vendor;
 import com.repository.VendorRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class VendorService
@@ -13,8 +13,11 @@ public class VendorService
 	private VendorRepository vendorrepo;
 
 	//register
-	public Vendor registerVendor(Vendor vendor) 
-	{
+	public Vendor registerVendor(Vendor vendor) throws Exception {
+		User foundUser = vendorrepo.findVendorByEmail(vendor.getV_email());
+		if(foundUser != null){
+			throw new Exception("Vendor already exists");
+		}
 		// TODO Auto-generated method stub
 			return vendorrepo.save(vendor);
 	}

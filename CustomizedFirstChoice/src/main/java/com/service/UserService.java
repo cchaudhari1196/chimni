@@ -1,12 +1,11 @@
 package com.service;
 
 
-import org.apache.tomcat.websocket.AuthenticationException;
+import com.entities.User;
+import com.models.ChangePasswordModel;
+import com.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.entities.User;
-import com.repository.UserRepository;
 
 @Service
 public class UserService
@@ -15,8 +14,11 @@ public class UserService
 	private UserRepository userrepo;
 
 	//register
-	public User registerUser(User user) 
-	{
+	public User registerUser(User user) throws Exception {
+		User foundUser = userrepo.findUserByEmail(user.getU_email());
+		if(foundUser != null){
+			throw new Exception("User already exists");
+		}
 		// TODO Auto-generated method stub
 			return userrepo.save(user);
 	}
@@ -90,6 +92,13 @@ public class UserService
 	public java.util.List<User> allUser() {
 		// TODO Auto-generated method stub
 		return userrepo.findAll();
+	}
+
+	public User changePassword(ChangePasswordModel changePasswordModel) {
+		User user = userrepo.findUserByEmail(changePasswordModel.getEmail());
+		user.setU_password(changePasswordModel.getPassword());
+		userrepo.save(user);
+		return user;
 	}
 }
 
