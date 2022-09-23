@@ -40,3 +40,11 @@ DROP COLUMN `qty`;
 
 ngrok http -host-header=rewrite 3000
 
+
+
+
+
+REACT_APP_BASE_URL="http://localhost:8080"
+RAZORPAY_KEY_ID="rzp_test_7Q02Vr6vMkAWGi"
+RAZORPAY_KEY_SECRET="Qm45uG4Jcqij7i1ahHZ778hA"
+

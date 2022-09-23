@@ -1,18 +1,14 @@
 package com.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table
 @Entity
-
 public class User {
 
 	@Id
-	@GeneratedValue
-	private int u_id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer u_id;
 	
 	private String u_fname;
 	private String u_lname;
@@ -33,7 +29,6 @@ public class User {
 	public User(int u_id, String u_fname, String u_lname, String u_phone, String u_address, String u_email,
 			String u_password, float wallet) {
 		super();
-		this.u_id = u_id;
 		this.u_fname = u_fname;
 		this.u_lname = u_lname;
 		this.u_phone = u_phone;
@@ -44,12 +39,8 @@ public class User {
 	}
 
 
-	public int getU_id() {
+	public Integer getU_id() {
 		return u_id;
-	}
-
-	public void setU_id(int u_id) {
-		this.u_id = u_id;
 	}
 
 	public String getU_phone() {

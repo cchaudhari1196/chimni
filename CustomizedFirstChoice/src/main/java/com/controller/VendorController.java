@@ -1,13 +1,13 @@
 package com.controller;
-import java.util.List;
 
+import com.entities.Vendor;
+import com.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.entities.Vendor;
-import com.service.VendorService;
+import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -20,8 +20,7 @@ public class VendorController
 	 
 	
 	@PostMapping("/addvendor")
-	public Vendor registerVendor(@RequestBody Vendor vendor)
-	{
+	public Vendor registerVendor(@RequestBody Vendor vendor) throws Exception {
 		return vendorservice.registerVendor(vendor);
 	
 	}//Ok

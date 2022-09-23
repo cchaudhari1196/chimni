@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.entities.User;
+import com.models.ChangePasswordModel;
 import com.service.UserService;
 import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,7 @@ public class UserController
 	 
 	
 	@PostMapping("/adduser")
-	public User registerUser(@RequestBody User user)
-	{
+	public User registerUser(@RequestBody User user) throws Exception {
 		return userservice.registerUser(user);
 	}
 
@@ -63,7 +63,15 @@ public class UserController
 		else
 			return false;
 	}//Ok
-	
+
+
+	@PostMapping("/change_password")
+	public User changePassword(@RequestBody ChangePasswordModel changePasswordModel)
+	{
+		return userservice.changePassword(changePasswordModel);
+	}
+
+
 	@GetMapping("/getuser/{u_id}")
 	public User singleUser(@PathVariable int u_id)
 	{

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.proxy.HibernateProxy;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class MyOrder {
 	private String contactno;
 	private float totalprice;
 	private String ostatus="Placed";
+
+	private Timestamp timestamp;
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "u_id")
@@ -88,6 +91,14 @@ public class MyOrder {
 		this.ostatus = ostatus;
 	}
 
+	public int getO_id() {
+		return o_id;
+	}
+
+	public void setO_id(int o_id) {
+		this.o_id = o_id;
+	}
+
 	public User getUser() {
 		if(user instanceof HibernateProxy){
 			return (User) ((HibernateProxy) user).getHibernateLazyInitializer().getImplementation();
@@ -107,6 +118,13 @@ public class MyOrder {
 		this.productAssoc = productAssoc;
 	}
 
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
 
 	public void addProductAssoc(MyOrderProductMapping productAssoc) {
 		if(this.productAssoc==null)

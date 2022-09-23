@@ -9,6 +9,8 @@ import org.hibernate.proxy.HibernateProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.*;
 
 @Service
@@ -61,7 +63,7 @@ public class MyOrderService {
 		orderEntity.setOstatus(mo.getOstatus());
 		orderEntity.setTotalprice(mo.getTotalprice());
 		orderEntity.setTotalprice(price);
-
+		orderEntity.setTimestamp(Timestamp.from(Instant.now()));
 		User user = userRepo.getById(mo.getU_id());
 		orderEntity.setUser(user);
 
