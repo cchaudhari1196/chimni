@@ -19,7 +19,7 @@ export default class AddMoney extends React.Component {
         console.log(this.state.cname);
 
     }
-    submitForm =async (e) => {
+    submitForm = async (e) => {
         const reqData = {
             method: 'POST',
             headers: {
@@ -35,9 +35,9 @@ export default class AddMoney extends React.Component {
         await fetch(url, reqData)
             .then(response => response.json())
             .then(data => {
-                let sign=  JSON.parse(localStorage.getItem('data1'))
-                sign.wallet=data.wallet
-                localStorage.setItem('data1', JSON.stringify(sign));
+                let sign = JSON.parse(localStorage.getItem('data1'))
+                sign.wallet = data.wallet
+                // localStorage.setItem('data1', JSON.stringify(sign));
                 window.location.href = "/wallet";
             }).catch((error) => {
                 console.log(error);
@@ -58,10 +58,12 @@ export default class AddMoney extends React.Component {
                             {/* <input type="number" name="cname" value={this.state.cname} onChange={this.handleChange1} /> */}
                             <Form.Group className="mb-2 mt-3" controlId="formBasicEmail">
                                 <Form.Label>Enter Amount</Form.Label>
-                                <Form.Control type="number" name="cname" value={this.state.cname} onChange={this.handleChange1}  />
+                                <Form.Control type="number" name="cname" value={this.state.cname} onChange={this.handleChange1} />
                             </Form.Group>
                             <br />
-                            <Link to="/login"> <button className='innerbutton' type="submit" value="Submit" onClick={this.submitForm}>Ok</button></Link><br />
+                            {/* <Link to="/login">  */}
+                            <button className='innerbutton' disabled={!(this.state.cname.length > 0)} type="submit" value="Submit" onClick={this.submitForm}>Ok</button>
+                            {/* </Link><br /> */}
                         </form>
                     </div>
                 </div>

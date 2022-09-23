@@ -5,6 +5,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import { Form } from "react-bootstrap";
 import Logo from '../assets/img/Logo.png';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import axios from 'axios';
 
 export default class Register extends React.Component {
     constructor(props) {
@@ -117,25 +118,28 @@ export default class Register extends React.Component {
     submitForm = async (e) => {
         e.preventDefault();
         //console.log(this.state);
-        const reqData = {
-            method: 'POST',
+        let data = {
+            u_fname: this.state.fname,
+            u_lname: this.state.lname,
+            u_phone: this.state.contactno,
+            u_address: this.state.address,
+            u_email: this.state.email,
+            u_password: this.state.password,
+        }
+
+        await axios.post(process.env.REACT_APP_BASE_URL + "/user/adduser", data, {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                u_fname: this.state.fname,
-                u_lname: this.state.lname,
-                u_phone: this.state.contactno,
-                u_address: this.state.address,
-                u_email: this.state.email,
-                u_password: this.state.password,
+        })
+            .then(resp => {
+                this.setState({ st: resp.data, success: true })
+                window.location.href = "/login";
             })
-        };
+            .catch((error) => {
+                alert("Error: " + error)
+            })
 
-        await fetch(process.env.REACT_APP_BASE_URL+"/user/adduser", reqData)
-            .then(resp => resp.json())
-            .then(data => this.setState({ st: data, success: true }));
-        window.location.href = "/login";
 
     }
     render() {
@@ -143,7 +147,7 @@ export default class Register extends React.Component {
             <div className='register'>
                 <Link to="/">
                     {/* <HomeIcon className='register_homeIcon' /> */}
-                    <img className='login_img' src={Logo} alt='logo'/>
+                    <img className='login_img' src={Logo} alt='logo' />
                 </Link>
                 <div className='register_container'>
                     <h1>User Sign-up</h1>
@@ -179,7 +183,7 @@ export default class Register extends React.Component {
                         <Link to="register" ><button className='innerbutton' type="submit" onClick={this.submitForm}>Sign Up</button></Link><br />
                     </Form.Group>
                     <Form.Group className="mb-2" controlId="formBasicEmail">
-                        <Link to="/login" ><button className='innerbutton'><ArrowBackIcon/>Back</button></Link><br />
+                        <Link to="/login" ><button className='innerbutton'><ArrowBackIcon />Back</button></Link><br />
                     </Form.Group>
                     <span>{this.state.error.emailerr}{this.state.error.fnameerr}{this.state.error.lnameerr}{this.state.error.addresserr}<br />
                         {this.state.error.pwderr}{this.state.error.contactnoerr}</span>

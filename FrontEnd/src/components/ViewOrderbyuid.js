@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Rating } from 'react-simple-star-rating'
 import axios from 'axios'
 import { Modal, Button } from 'react-bootstrap';
+import moment from 'moment';
 
 function ViewOrderbyuid() {
 
@@ -138,6 +139,7 @@ function ViewOrderbyuid() {
                                 <table style={{ textAlign: 'left', width: '100%' }}>
                                     <tr>
                                         <th>Order ID</th>
+                                        <th>Created At</th>
                                         <th>Order Total Price</th>
                                         <th>Order Status</th>
                                         <th>Order QTY</th>
@@ -147,6 +149,7 @@ function ViewOrderbyuid() {
                                         return (
                                             <tr style={{ borderBottom: "1px solid grey" }}>
                                                 <td>{o.oid}</td>
+                                                <td>{moment(o.timestamp).format("DD-MM-YYYY HH:mm:ss")}</td>
                                                 <td>{o.totalprice}</td>
                                                 <td>{o.ostatus}</td>
                                                 <td>

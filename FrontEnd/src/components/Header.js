@@ -176,7 +176,7 @@ function Header() {
             </Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/checkout" className="headerLink">
+            <Link to={basket?.length > 0 ? "/checkout" : "/"} className="headerLink">
               <div className="header_optionBasket">
                 <ShoppingCartIcon
                   fontSize="large"

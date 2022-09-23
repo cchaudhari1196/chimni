@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import Search from './components/Search.js';
 import RawProducts from './components/RawProducts.js';
 import StitchedProducts from './components/StitchedProducts.js';
+import ForgotPassword from './components/ForgotPassword.js';
 import Vendorlogin from './components/Vendorlogin.js';
 import VendorHome from './components/VendorHome.js';
 import Adminlogin from './components/AdminLogin.js';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/" element={<><Header /><Home /></>} />
           <Route path="/checkout" element={<><Header /><Checkout /><Footer /></>} />
           <Route path="/login" element={<><Login /></>} />
+          <Route path="/forgot_password" element={<><ForgotPassword /></>} />
           <Route path="/register" element={<> <Register /></>} />
           <Route path="/vendorregister" element={<> <VendorRegister /></>} />
           <Route path="/payment" element={<> <Payment /> <Footer /></>} />
